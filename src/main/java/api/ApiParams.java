@@ -26,7 +26,7 @@ public class ApiParams {
             "    }]" +
             "  }]" +
             "}";
-    private static String update_event= "{" +
+    private static final String update_event= "{" +
             "\"game\": \""+name+"\"," +
             "\"event\": \""+event_name+"\"," +
             "\"data\": {\"value\": \"%s\"}" +
@@ -44,8 +44,8 @@ public class ApiParams {
         return url;
     }
 
-    public String getParameter(String... s) {
-        return String.format(param,s);
+    public String getParameter(String... extras) {
+        return String.format(param,extras);
     }
     public static final ApiParams BIND_EVENT=new ApiParams(bind_event,"bind_game_event");
     public static final ApiParams UPDATE_EVENT=new ApiParams(update_event,"game_event");

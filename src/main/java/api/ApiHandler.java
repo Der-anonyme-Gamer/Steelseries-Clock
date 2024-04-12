@@ -17,7 +17,7 @@ public class ApiHandler {
     public  String API_URL;
     public ApiHandler(){
         String filePath = System.getenv("PROGRAMDATA") + "/SteelSeries/SteelSeries Engine 3/coreProps.json";
-        String content = null;
+        String content;
         try {
             content = new String(Files.readAllBytes(Paths.get(filePath)));
         } catch (IOException e) {
