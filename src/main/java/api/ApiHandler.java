@@ -96,9 +96,16 @@ public class ApiHandler {
     }
     public static String getTimeAsString(){
         Date d=new Date();
-        SimpleDateFormat date=new SimpleDateFormat(SetupFile.getDateFormat());
-        SimpleDateFormat time=new SimpleDateFormat(SetupFile.getTimeFormat());
-        String s=time.format(d)+"   "+date.format(d)+".";
+        String s="";
+        String dateFormat=SetupFile.getDateFormat();
+        String timeFormat=SetupFile.getTimeFormat();
+        if(dateFormat==null||timeFormat==null){
+            new ErrorHandler("Date format or time format is null").throwError();
+        }else {
+            SimpleDateFormat date = new SimpleDateFormat(dateFormat);
+            SimpleDateFormat time = new SimpleDateFormat(timeFormat);
+            s = time.format(d) + "   " + date.format(d) + ".";
+        }
         return s;
     }
 

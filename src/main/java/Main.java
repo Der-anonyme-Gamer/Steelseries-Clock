@@ -2,9 +2,6 @@ import api.ApiHandler;
 import error.ErrorHandler;
 import files.SetupFile;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class Main {
 
     public static void main(String... args){
