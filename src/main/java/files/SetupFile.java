@@ -12,7 +12,7 @@ public class SetupFile {
                 f.createNewFile();
                 FileWriter w=new FileWriter(fileName,true);
                 BufferedWriter bufferedWriter = new BufferedWriter(w);
-                bufferedWriter.write("Settings File for Steelseries-Clock:\nSetup your time format using this characters:\n- HH (Hours)\n- hh (Hours 12h format)\n- a (AM/PM)\n- mm (Minutes)\n- ss (Seconds)\n\nSetup your date format using this characters:\n- dd (Day)\n - mm (Month)\n - yy/yyyy (Year)\n\nTimeFormat=\"hh:mm:ss a\"\nDateFormat=\"MM.dd.yyyy\"");
+                bufferedWriter.write("Settings File for Steelseries-Clock:\nSetup your time format using this characters:\n- HH (Hours 24h format)\n- hh (Hours 12h format)\n- a (AM/PM)\n- mm (Minutes)\n- ss (Seconds)\n\nSetup your date format using this characters:\n- dd (Day)\n - mm (Month)\n - yy/yyyy (Year)\n\nTimeFormat=\"hh:mm:ss a\"\nDateFormat=\"MM.dd.yyyy\"");
                 bufferedWriter.close();
             } catch (IOException e) {
                 new ErrorHandler("Error while creating Settings file: "+e.getCause()).throwError();
