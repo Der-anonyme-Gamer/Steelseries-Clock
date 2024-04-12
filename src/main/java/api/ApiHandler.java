@@ -1,5 +1,8 @@
 package api;
 
+import error.ErrorHandler;
+import files.SetupFile;
+
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -68,11 +71,12 @@ public class ApiHandler {
                 }
             } else {
                 if(code==2) {
-                    throw new RuntimeException(time+": There was an error while setting Metadata: "+getErrorAsString(httpURLConnection));
+                    new ErrorHandler("There was an error while setting Metadata: "+getErrorAsString(httpURLConnection)).throwError();
                 }else if(code==1){
-                    throw new RuntimeException(time+": There was an error while binding Game: "+getErrorAsString(httpURLConnection));
+
+                    new ErrorHandler("There was an error while binding Game: "+getErrorAsString(httpURLConnection)).throwError();
                 }else {
-                    throw new RuntimeException(time+": There was an error while updating OLED: "+getErrorAsString(httpURLConnection));
+                    new ErrorHandler("There was an error while updating OLED: "+getErrorAsString(httpURLConnection)).throwError();
                 }
             }
         } catch (IOException e) {
@@ -92,7 +96,10 @@ public class ApiHandler {
     }
     public static String getTimeAsString(){
         Date d=new Date();
-        SimpleDateFormat time=new SimpleDateFormat("HH:mm:ss   dd.MM.yy.");
-        return time.format(d);
+        SimpleDateFormat date=new SimpleDateFormat(SetupFile.getDateFormat());
+        SimpleDateFormat time=new SimpleDateFormat(SetupFile.getTimeFormat());
+        String s=time.format(d)+"   "+date.format(d)+".";
+        return s;
     }
+
 }
