@@ -1,6 +1,6 @@
 # Steelseries Clock
 
-![Steelseries Clock Preview](clock_preview.png)
+![Steelseries Clock Preview](24h-format.jpg)
 
 Steelseries Clock is a simple clock application designed for Steelseries keyboards with OLED displays. It displays your local time and date.
 
